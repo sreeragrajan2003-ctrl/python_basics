@@ -14,6 +14,8 @@ book_author = input("Enter author name:")
 book_publications = input("Enter book publications name:")
 print(f"{book_publications.upper()} publications published \"{book_name.title()}\" written by {book_author.lower()}")
 
+#extra codes done from chatgpt
+
 movie = input("Which is your favourite movie? ")
 director = input("who is director of the movie?")
 print(
