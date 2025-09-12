@@ -34,6 +34,10 @@ for j in range(1, number+1):
     for i in range(1, 11):
         print(f"{j} x {i} = {number*i}")
 
+number = int(input("Enter number:"))
+for i in range(1, 11):
+    print(f"{j} x {i} = {number*i}")
+
 
 #extra
 #factorial calulator
