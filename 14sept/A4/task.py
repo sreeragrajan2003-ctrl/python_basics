@@ -10,6 +10,8 @@ else:
                 break
         if is_prime:
             print(i)
+
+
 word = input("Enter the string: ")
 vowels = 0
 consanants = 0
