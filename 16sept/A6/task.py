@@ -73,11 +73,11 @@
 #     else:
 #         print("Invalid choice. Try again.")
 
+contacts = {
+    "Alice Johnson": {"phone": "555-0123", "email": "alice@email.com", "address": "123 Main St"},
+    "Bob Smith": {"phone": "555-0456", "email": "bob@email.com", "address": "456 Oak Ave"}
+}
 
-# contacts = {
-#     "Alice Johnson": {"phone": "555-0123", "email": "alice@email.com", "address": "123 Main St"},
-#     "Bob Smith": {"phone": "555-0456", "email": "bob@email.com", "address": "456 Oak Ave"}
-# }
 while True:
     print("\n--- Contact Book ---")
     print("1. Show all contacts")
@@ -91,15 +91,13 @@ while True:
     if choice == "1":  # show all contacts
         for name in sorted(contacts):
             info = contacts[name]
-            print(
-                f"\n{name}\n Phone: {info['phone']}\n Email: {info['email']}\n Address: {info['address']}")
+            print(f"\n{name}\n Phone: {info['phone']}\n Email: {info['email']}\n Address: {info['address']}")
 
     elif choice == "2":  # search
         name = input("Enter name to search: ")
         if name in contacts:
             info = contacts[name]
-            print(
-                f"\n{name}\n Phone: {info['phone']}\n Email: {info['email']}\n Address: {info['address']}")
+            print(f"\n{name}\n Phone: {info['phone']}\n Email: {info['email']}\n Address: {info['address']}")
         else:
             print("Not found")
 
@@ -109,8 +107,7 @@ while True:
             phone = input("New phone: ")
             email = input("New email: ")
             address = input("New address: ")
-            contacts[name] = {"phone": phone,
-                              "email": email, "address": address}
+            contacts[name] = {"phone": phone, "email": email, "address": address}
             print("Updated!")
         else:
             print("Not found")
@@ -122,6 +119,7 @@ while True:
         address = input("Address: ")
         contacts[name] = {"phone": phone, "email": email, "address": address}
         print("Contact added!")
+
     elif choice == "5":
         print("Goodbye!")
         break
