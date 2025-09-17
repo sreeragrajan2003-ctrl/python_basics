@@ -59,51 +59,51 @@
 #     else:
 #         break
 
-contacts = {}
-while True:
-    print("Contact book: \n 1. Display contacts \n 2. Update contact\n 3. Add contact\n 4. Search contact\n 5. Exit")
-    selector = int(input("Enter the operation: "))
-    if selector == 1:
-        if len(contacts) == 0:
-            print("No contacts")
-        else:
-            for name in contacts:
-                info = contacts[name]
-                print(
-                    f"{name}\nPhone: {info["phone"]}\nEmail: {info["email"]}\nAddress: {info["address"]}\n")
-    elif selector == 2:
-        if len(contacts) == 0:
-            print("No contacts")
-        else:
-            name = input("Enter name: ")
-            if name in contacts:
-                info = contacts[name]
-                phone = input("Enter number: ")
-                email = input("Enter email: ")
-                address = input("Enter address")
-                info["phone"] = phone
-                info["email"] = email
-                info["address"] = address
-                print("contact updated")
-            else:
-                print("No such names in contact")
-    elif selector == 3:
-        name = input("Enter name: ")
-        phone = input("Enter number: ")
-        email = input("Enter email: ")
-        address = input("Enter address: ")
-        contacts[name] = {"phone": phone, "email": email, "address": address}
-        print("Contact Added")
-    elif selector == 4:
-        name = input("Enter name to search: ")
-        if name in contacts:
-            info = contacts[name]
-            print(
-                f"{name}\nPhone: {info["phone"]}\nEmail: {info["email"]}\nAddress: {info["address"]}")
-        else:
-            print("No such names in contact")
-    elif selector == 5:
-        print("Bye.....")
-        break
-    else:
-        print("Invalid input")
+# contacts = {}
+# while True:
+#     print("Contact book: \n 1. Display contacts \n 2. Update contact\n 3. Add contact\n 4. Search contact\n 5. Exit")
+#     selector = int(input("Enter the operation: "))
+#     if selector == 1:
+#         if len(contacts) == 0:
+#             print("No contacts")
+#         else:
+#             for name in sorted(contacts):
+#                 info = contacts[name]
+#                 print(
+#                     f"{name}\nPhone: {info["phone"]}\nEmail: {info["email"]}\nAddress: {info["address"]}\n")
+#     elif selector == 2:
+#         if len(contacts) == 0:
+#             print("No contacts")
+#         else:
+#             name = input("Enter name: ")
+#             if name in contacts:
+#                 info = contacts[name]
+#                 phone = input("Enter number: ")
+#                 email = input("Enter email: ")
+#                 address = input("Enter address")
+#                 info["phone"] = phone
+#                 info["email"] = email
+#                 info["address"] = address
+#                 print("contact updated")
+#             else:
+#                 print("No such names in contact")
+#     elif selector == 3:
+#         name = input("Enter name: ")
+#         phone = input("Enter number: ")
+#         email = input("Enter email: ")
+#         address = input("Enter address: ")
+#         contacts[name] = {"phone": phone, "email": email, "address": address}
+#         print("Contact Added")
+#     elif selector == 4:
+#         name = input("Enter name to search: ")
+#         if name in contacts:
+#             info = contacts[name]
+#             print(
+#                 f"{name}\nPhone: {info["phone"]}\nEmail: {info["email"]}\nAddress: {info["address"]}")
+#         else:
+#             print("No such names in contact")
+#     elif selector == 5:
+#         print("Bye.....")
+#         break
+#     else:
+#         print("Invalid input")
