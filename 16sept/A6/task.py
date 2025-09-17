@@ -28,100 +28,82 @@
 
 
 # Dictionary to store student: grade
-# students = {}
-
+# student_grade = {}
 # while True:
-#     show_menu()
-#     choice = input("Enter your choice: ")
-
-#     if choice == "1":
-#         name = input("Enter student name: ")
-#         grade = float(input("Enter grade (0-100): "))
-#         students[name] = grade
-#         print(f"{name}'s grade has been added/updated.")
-
-#     elif choice == "2":
-#         if not students:
-#             print("No students yet.")
+#     print("Grade tracker\n1. Add/update student details\n2. Display details\n3. Average grade\n4. Highest and lowest grade\n5. Exit")
+#     selector = int(input("Enter the operation: "))
+#     if selector == 1:
+#         student = input("Name of student: ")
+#         grade = int(input("Enter grade out of 100: "))
+#         student_grade[student] = grade
+#         print(f"{student} details added\n")
+#     elif selector == 2:
+#         if len(student_grade) == 0:
+#             print("No student details added\n")
 #         else:
-#             print("\nAll Students and Grades:")
-#             for name, grade in students.items():
-#                 print(f"{name}: {grade}")
-
-#     elif choice == "3":
-#         if not students:
-#             print("No grades available.")
+#             print(f"Students: {student_grade}\n")
+#     elif selector == 3:
+#         if len(student_grade) == 0:
+#             print("No student details added\n")
 #         else:
-#             average = sum(students.values()) / len(students)
-#             print(f"Average Grade: {average:.2f}")
-
-#     elif choice == "4":
-#         if not students:
-#             print("No students to compare.")
+#             average = sum(student_grade.values())/len(student_grade)
+#             print(f"Average: {average}\n")
+#     elif selector == 4:
+#         if len(student_grade) == 0:
+#             print("No student details added\n")
 #         else:
-#             highest_student = max(students, key=students.get)
-#             lowest_student = min(students, key=students.get)
-#             print(
-#                 f"Highest scorer: {highest_student} ({students[highest_student]})")
-#             print(
-#                 f"Lowest scorer: {lowest_student} ({students[lowest_student]})")
-
-#     elif choice == "5":
-#         print("Exiting Student Grade Tracker.")
+#             highest = max(student_grade, key=student_grade.get)
+#             lowest = min(student_grade, key=student_grade.get)
+#             print(f"Highest student:{highest} {student_grade[highest]}")
+#             print(f"Lowest student:{lowest} {student_grade[lowest]}\n")
+#     else:
 #         break
 
-#     else:
-#         print("Invalid choice. Try again.")
-
-contacts = {
-    "Alice Johnson": {"phone": "555-0123", "email": "alice@email.com", "address": "123 Main St"},
-    "Bob Smith": {"phone": "555-0456", "email": "bob@email.com", "address": "456 Oak Ave"}
-}
-
+contacts = {}
 while True:
-    print("\n--- Contact Book ---")
-    print("1. Show all contacts")
-    print("2. Search contact")
-    print("3. Edit contact")
-    print("4. Add new contact")
-    print("5. Exit")
-
-    choice = input("Enter choice: ")
-
-    if choice == "1":  # show all contacts
-        for name in sorted(contacts):
-            info = contacts[name]
-            print(f"\n{name}\n Phone: {info['phone']}\n Email: {info['email']}\n Address: {info['address']}")
-
-    elif choice == "2":  # search
+    print("Contact book: \n 1. Display contacts \n 2. Update contact\n 3. Add contact\n 4. Search contact\n 5. Exit")
+    selector = int(input("Enter the operation: "))
+    if selector == 1:
+        if len(contacts) == 0:
+            print("No contacts")
+        else:
+            for name in contacts:
+                info = contacts[name]
+                print(
+                    f"{name}\nPhone: {info["phone"]}\nEmail: {info["email"]}\nAddress: {info["address"]}\n")
+    elif selector == 2:
+        if len(contacts) == 0:
+            print("No contacts")
+        else:
+            name = input("Enter name: ")
+            if name in contacts:
+                info = contacts[name]
+                phone = input("Enter number: ")
+                email = input("Enter email: ")
+                address = input("Enter address")
+                info["phone"] = phone
+                info["email"] = email
+                info["address"] = address
+                print("contact updated")
+            else:
+                print("No such names in contact")
+    elif selector == 3:
+        name = input("Enter name: ")
+        phone = input("Enter number: ")
+        email = input("Enter email: ")
+        address = input("Enter address: ")
+        contacts[name] = {"phone": phone, "email": email, "address": address}
+        print("Contact Added")
+    elif selector == 4:
         name = input("Enter name to search: ")
         if name in contacts:
             info = contacts[name]
-            print(f"\n{name}\n Phone: {info['phone']}\n Email: {info['email']}\n Address: {info['address']}")
+            print(
+                f"{name}\nPhone: {info["phone"]}\nEmail: {info["email"]}\nAddress: {info["address"]}")
         else:
-            print("Not found")
-
-    elif choice == "3":  # edit
-        name = input("Enter name to edit: ")
-        if name in contacts:
-            phone = input("New phone: ")
-            email = input("New email: ")
-            address = input("New address: ")
-            contacts[name] = {"phone": phone, "email": email, "address": address}
-            print("Updated!")
-        else:
-            print("Not found")
-
-    elif choice == "4":  # add new
-        name = input("Enter new name: ")
-        phone = input("Phone: ")
-        email = input("Email: ")
-        address = input("Address: ")
-        contacts[name] = {"phone": phone, "email": email, "address": address}
-        print("Contact added!")
-
-    elif choice == "5":
-        print("Goodbye!")
+            print("No such names in contact")
+    elif selector == 5:
+        print("Bye.....")
         break
     else:
-        print("Invalid choice")
+        print("Invalid input")
