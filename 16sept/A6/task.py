@@ -59,9 +59,18 @@
 #     else:
 #         break
 
+
+# def save_contacts():
+#     with open("contacts.txt", "w") as f:
+#         for name, info in contacts.items():
+#             f.write(f"{name}: {info}\n")
+#     with open("contacts.txt", "r") as f:
+#         print(f.read())
+
+
 # contacts = {}
 # while True:
-#     print("Contact book: \n 1. Display contacts \n 2. Update contact\n 3. Add contact\n 4. Search contact\n 5. Exit")
+#     print("Contact book: \n 1. Display contacts \n 2. Delete contact\n 3. Add contact\n 4. Search contact\n 5. Exit")
 #     selector = int(input("Enter the operation: "))
 #     if selector == 1:
 #         if len(contacts) == 0:
@@ -75,16 +84,10 @@
 #         if len(contacts) == 0:
 #             print("No contacts")
 #         else:
-#             name = input("Enter name: ")
+#             name = input("Enter name to delete: ")
 #             if name in contacts:
-#                 info = contacts[name]
-#                 phone = input("Enter number: ")
-#                 email = input("Enter email: ")
-#                 address = input("Enter address")
-#                 info["phone"] = phone
-#                 info["email"] = email
-#                 info["address"] = address
-#                 print("contact updated")
+#                 del contacts[name]
+#                 save_contacts()
 #             else:
 #                 print("No such names in contact")
 #     elif selector == 3:
@@ -94,6 +97,7 @@
 #         address = input("Enter address: ")
 #         contacts[name] = {"phone": phone, "email": email, "address": address}
 #         print("Contact Added")
+#         save_contacts()
 #     elif selector == 4:
 #         name = input("Enter name to search: ")
 #         if name in contacts:
