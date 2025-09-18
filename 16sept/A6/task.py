@@ -111,3 +111,50 @@
 #         break
 #     else:
 #         print("Invalid input")
+def file_details():
+    with open("report.txt", "w") as file:
+        for exp in expenses:
+            file.write(
+                f"{exp['date']}\n{exp['category']}\n{exp['amount']}\n{exp['description']}\n")
+    with open("report.txt", "r") as file:
+        print(file.read())
+
+
+expenses = []
+
+
+while True:
+    print("Expense tracker\n1. Add expense\n2. View all expense\n3. Category summary\n4. Monthly summary")
+    operator = int(input("Select operation: "))
+    if operator == 1:
+        date = input("Enter date (yyyy/mm/dd): ")
+        category = input("Enter category: ")
+        amount = int(input("Enter the amount: "))
+        description = input("Enter description")
+        expenses.append({
+            "date": date,
+            "category": category,
+            "amount": amount,
+            "description": description}
+        )
+        print("Contact added")
+        file_details()
+    elif operator == 2:
+        for exp in expenses:
+            print(
+                f"date:{exp["date"]}\ncategory:{exp["category"]}\namount:{exp["amount"]}\ndescription:{exp["description"]}")
+    elif operator == 3:
+        category_sum = {}
+        for exp in expenses:
+            cat = exp["category"]
+            amt = exp["amount"]
+            category_sum[cat] = amt+category_sum.get(cat, 0)
+        for cat, amt in category_sum.items():
+            print(f"Category: {cat}\nAmount: {amt}")
+    elif operator == 4:
+        monthly = 0
+        for exp in expenses:
+            monthly += exp["amount"]
+        print(f"Monthly expense: {monthly}")
+    else:
+        print("invalid input!")
