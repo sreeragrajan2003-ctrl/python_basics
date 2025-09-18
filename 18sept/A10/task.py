@@ -73,7 +73,7 @@ while True:
             name = input('Enter the name: ')
             flag = True
             while True:
-                number = input("Enter the mobile number: ")
+                number = (input("Enter the mobile number: "))
                 if number.isdigit():
                     break
                 else:
@@ -82,7 +82,7 @@ while True:
             email = input("Enter email")
 
             contacts.append({"name": name, "phone": number, "email": email})
-            if "." or "@" not in email:
+            if "." not in email or "@" not in email:
                 print("Not proper email still saved")
             else:
                 print("Contact saved")
