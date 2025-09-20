@@ -25,34 +25,28 @@ import math
 
 # Base class
 
-
-class Shape:
-    def area(self):
-        pass
-
-# Circle subclass
-
-
-class Circle(Shape):
-    def __init__(self, radius):
-        self.radius = radius
-
-    def area(self):
-        return math.pi * (self.radius ** 2)
-
-# Square subclass
-
-
-class Square(Shape):
-    def __init__(self, side):
-        self.side = side
-
-    def area(self):
-        return self.side ** 2
-
-# Rectangle subclass
-
 # STRETCH TASK
+# class Shape:
+#     def area(self):
+#         pass
+
+
+# class Circle(Shape):
+#     def __init__(self, radius):
+#         self.radius = radius
+
+#     def area(self):
+#         return math.pi * (self.radius ** 2)
+
+
+# class Square(Shape):
+#     def __init__(self, side):
+#         self.side = side
+
+#     def area(self):
+#         return self.side ** 2
+
+
 # class Rectangle(Shape):
 #     def __init__(self, length, breadth):
 #         self.length = length
