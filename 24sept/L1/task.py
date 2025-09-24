@@ -12,7 +12,4 @@
 # PALINDROME
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-        if x < 0:
-            return False
-        else:
-            return str[x] == str[::-1]
+        return str[x] == str[::-1]
